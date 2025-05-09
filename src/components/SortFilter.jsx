@@ -27,27 +27,36 @@ const SortFilter = ({ onSortChange }) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition-all duration-200 min-w-[200px] shadow-sm"
+        className={`flex items-center justify-between gap-4 bg-blue-900/80 backdrop-blur-sm border-2 border-blue-400/30 rounded-xl px-5 py-4 text-lg font-semibold text-blue-50 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-900 transition-all duration-200 min-w-[260px] shadow-xl ${
+          isOpen ? 'ring-4 ring-blue-500' : ''
+        }`}
       >
-        <span>{selectedLabel}</span>
-        <FiChevronDown className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="truncate">{selectedLabel}</span>
+        <FiChevronDown 
+          size={20}
+          className={`transition-transform duration-200 text-blue-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 mt-1 w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg overflow-hidden">
-          <div className="py-1">
+        <div className="absolute z-20 mt-3 w-full bg-blue-900/95 backdrop-blur-sm border-2 border-blue-400/30 rounded-xl shadow-2xl overflow-hidden">
+          <div className="py-2">
             {sortOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => handleOptionClick(option.value)}
-                className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium text-left hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150 ${
-                  selectedOption === option.value 
-                    ? 'bg-blue-600 text-white hover:bg-blue-600' 
-                    : 'text-gray-700 dark:text-gray-200'
+                className={`flex items-center justify-between w-full px-5 py-4 text-lg font-semibold transition-colors duration-150 ${
+                  selectedOption === option.value
+                    ? 'bg-blue-600 text-white'
+                    : 'text-blue-100 hover:bg-blue-800/80'
                 }`}
               >
                 <span>{option.label}</span>
-                {selectedOption === option.value && <FiCheck className="text-white dark:text-blue-300" />}
+                {selectedOption === option.value && (
+                  <FiCheck size={20} className="text-blue-200" />
+                )}
               </button>
             ))}
           </div>
@@ -57,4 +66,4 @@ const SortFilter = ({ onSortChange }) => {
   );
 };
 
-export default SortFilter;
+export default SortFilter;//

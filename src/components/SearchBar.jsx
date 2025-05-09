@@ -6,10 +6,10 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto mb-8">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    <div className="relative w-full max-w-2xl mx-auto mb-10">
+      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
         <svg
-          className="h-5 w-5 text-gray-300"
+          className="h-6 w-6 text-gray-400"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -25,12 +25,12 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         placeholder="Search countries by name..."
         onChange={handleInputChange}
-        className="w-full pl-10 pr-16 py-3 text-white placeholder-gray-300 border border-gray-600 bg-gray-700 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+        className="w-full pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 border border-gray-600 bg-gray-800 rounded-xl shadow-lg focus:outline-none focus:ring-3 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-500"
       />
-      <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+      <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
         <button 
           type="button"
-          className="px-3 py-1 text-sm text-white hover:text-blue-300 transition-colors duration-200 font-medium"
+          className="px-4 py-2 text-base text-gray-300 hover:text-blue-400 transition-all duration-200 font-medium hover:bg-gray-700 rounded-lg"
           onClick={() => onSearch('')}
         >
           Clear

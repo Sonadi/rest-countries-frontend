@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import CountryDetails from './pages/CountryDetails';
 import UserProvider from './context/UserContext';
 //import AboutPage from './pages/AboutPage';
+import Footer from './components/Footer';
 import 'animate.css';
 import { Toaster } from 'sonner';
 
